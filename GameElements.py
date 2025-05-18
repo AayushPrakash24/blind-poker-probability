@@ -1,4 +1,4 @@
-from CardExceptions import SuitException, RankException, InvalidArgumentException
+from CardExceptions import SuitException, RankException, InvalidArgumentException, InvalidHandException
 
 class Card:
     def __init__(self, rank, suit):
@@ -13,3 +13,23 @@ class Card:
         
         if self.suit not in "SCHD":
             raise SuitException()
+
+class Hand:
+    def __init__(self, *args):
+        if not args or 2 < len(args) < 5:
+            raise InvalidHandException("Incomplete hand.")
+
+        if len(args) > 5:
+            raise InvalidHandException("Too many cards.")
+        
+        self.hand = sorted(*args, key=lambda x: x.rank)
+        
+
+        
+    
+
+
+        
+        
+
+
