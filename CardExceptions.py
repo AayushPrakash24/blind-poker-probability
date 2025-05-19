@@ -21,3 +21,9 @@ class SuitException(InvalidArgumentException):
         if not message:
             message = "Invalid suit exception."
         super().__init__(message)
+
+class IncompleteHandException(InvalidHandException):
+    def __init__(self, message=None):
+        if not message:
+            message = "Incomplete hand exception."
+        super().__init__(message)
